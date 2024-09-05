@@ -14,7 +14,7 @@
     'use strict';
 
     function removeAds() {
-        $('.erd-ads-area').remove();
+        $('.erd-ads-area').attr('style', 'width: 0 !important');
         $('.erd-container').attr('style', 'width: 100% !important');
         $('.js-btn-fullscreen').click();
         setTimeout(()=>{
