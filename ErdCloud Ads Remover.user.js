@@ -22,18 +22,5 @@
         }, 50);
     }
 
-    let interval = 50;
-    let loop = setInterval
-    (
-        () =>
-        {
-            let isLoaded = $('.erd-ads-area').length > 0;
-            if (isLoaded)
-            {
-                removeAds();
-                console.log('removed');
-                interval = 1000;
-            }
-        }
-    , interval);
+    removeAds();
 })();
