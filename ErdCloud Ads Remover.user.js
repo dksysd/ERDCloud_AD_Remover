@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         ErdCloud Ads Remover
 // @namespace    http://tampermonkey.net/
-// @version      0.2
+// @version      0.3
 // @description  try to take over the world!
 // @author       You
 // @match        https://www.erdcloud.com/d/*
@@ -22,5 +22,8 @@
         }, 50);
     }
 
-    removeAds();
+    const adsAreaWidth = $('.erd-ads-area').width();
+    if (adsAreaWidth > 0) {
+        removeAds();
+    }
 })();
