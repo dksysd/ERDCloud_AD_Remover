@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         ErdCloud Ads Remover
 // @namespace    http://tampermonkey.net/
-// @version      0.4
+// @version      0.5
 // @description  try to take over the world!
 // @author       You
 // @match        https://www.erdcloud.com/d/*
@@ -16,14 +16,16 @@
     function removeAds() {
         $('.erd-ads-area').attr('style', 'width: 0 !important');
         $('.erd-container').attr('style', 'width: 100% !important');
-        $('.js-btn-fullscreen').click();
+        setTimeout(() => {
+            $('.js-btn-fullscreen').click();
+        }, 10);
         setTimeout(()=>{
-            $('.js-btn-fullscreen').click()
-        }, 50);
+            $('.js-btn-fullscreen').click();
+        }, 10);
     }
 
-    let interval = 1000;
-    let loop = setInterval
+    let interval = 10;
+    let loop = $('js-btn-fullscreen').ready(()=>setInterval
     (
         () =>
         {
@@ -32,7 +34,8 @@
             {
                 removeAds();
                 console.log('removed');
+                interval = 10;
             }
         }
-    , interval);
+    , interval));
 })();
