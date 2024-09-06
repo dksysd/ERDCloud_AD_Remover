@@ -22,8 +22,17 @@
         }, 50);
     }
 
-    const adsAreaWidth = $('.erd-ads-area').width();
-    if (adsAreaWidth > 0) {
-        removeAds();
-    }
+    let interval = 1000;
+    let loop = setInterval
+    (
+        () =>
+        {
+            let isLoaded = $('.erd-ads-area').width() > 0;
+            if (isLoaded)
+            {
+                removeAds();
+                console.log('removed');
+            }
+        }
+    , interval);
 })();
